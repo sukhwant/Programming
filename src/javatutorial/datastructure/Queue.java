@@ -2,6 +2,7 @@ package javatutorial.datastructure;
 
 import javatutorial.datastructure.exceptions.EmptyListException;
 import javatutorial.datastructure.exceptions.EmptyQueueException;
+import javatutorial.datastructure.list.DoubleLinkedList;
 
 public class Queue<T> {
 

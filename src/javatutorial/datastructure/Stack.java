@@ -2,6 +2,7 @@ package javatutorial.datastructure;
 
 import javatutorial.datastructure.exceptions.EmptyListException;
 import javatutorial.datastructure.exceptions.EmptyStackException;
+import javatutorial.datastructure.list.LinkedList;
 
 public class Stack<T> {
 
@@ -12,7 +13,7 @@ public class Stack<T> {
     }
 
     public void push(T element) {
-        list.add(element);
+        list.addFront(element);
     }
 
     public T pop() {

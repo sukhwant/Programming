@@ -1,4 +1,4 @@
-package javatutorial.datastructure;
+package javatutorial.datastructure.tree;
 
 public class Fenwicktree {
 

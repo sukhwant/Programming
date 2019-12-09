@@ -1,38 +1,48 @@
-package javatutorial.datastructure;
+package javatutorial.datastructure.list;
 
 import java.util.List;
 
 import javatutorial.datastructure.exceptions.EmptyListException;
 
-public class CircularLinkedList<T> {
+public class LinkedList<T> {
 
     private class LinkedListNode {
         private T data;
         private LinkedListNode next;
 
-        LinkedListNode(T data) {
+         LinkedListNode(T data) {
             this.data = data;
             this.next = null;
         }
     }
 
     private LinkedListNode head = null;
+    private LinkedListNode tail = null;
 
     /**
-     * Add an element to front of the list.
+     * Add an element to the list.
      *
      * @param element element to be added.
      */
-    public void add(T element) {
+    public void addFront(T element) {
         if (head == null) {
             head = new LinkedListNode(element);
-            head.next = head;
+            tail = head;
         } else {
-            LinkedListNode lastNode = getLastNode();
             LinkedListNode node = new LinkedListNode(element);
             node.next = head;
             head = node;
-            lastNode.next = head;
+        }
+    }
+
+    public void addLast(T element) {
+        if (head == null) {
+            head = new LinkedListNode(element);
+            tail = head;
+        } else {
+            LinkedListNode node = new LinkedListNode(element);
+            tail.next = node;
+            tail = node;
         }
     }
 
@@ -41,9 +51,20 @@ public class CircularLinkedList<T> {
      *
      * @param elements elements to add.
      */
-    public void addAll(List<T> elements) {
+    public void addAllFront(List<T> elements) {
         for(T element: elements){
-            this.add(element);
+            this.addFront(element);
+        }
+    }
+
+    /**
+     * Add a list of elements to the list.
+     *
+     * @param elements elements to add.
+     */
+    public void addAllLast(List<T> elements) {
+        for(T element: elements){
+            this.addLast(element);
         }
     }
 
@@ -56,35 +77,17 @@ public class CircularLinkedList<T> {
         if (head == null) {
             throw new EmptyListException("List is Empty");
         }
-        LinkedListNode lastNode = getLastNode();
         LinkedListNode node = head;
         head = head.next;
-        lastNode.next = head;
         return node.data;
-    }
-
-    private LinkedListNode getLastNode(){
-        if(head == null){
-            return head;
-        }
-        LinkedListNode temp = head.next;
-        while (temp != head) {
-            temp = temp.next;
-        }
-        return temp;
     }
 
     /**
      * Print the list
      */
     public void print() {
-        if(head == null){
-            System.out.println("Empty List....");
-            return;
-        }
-        System.out.println(head.data);
-        LinkedListNode temp = head.next;
-        while (temp != head) {
+        LinkedListNode temp = head;
+        while (temp != null) {
             System.out.println(temp.data);
             temp = temp.next;
         }

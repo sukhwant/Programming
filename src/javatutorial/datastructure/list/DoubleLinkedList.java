@@ -1,4 +1,4 @@
-package javatutorial.datastructure;
+package javatutorial.datastructure.list;
 
 import javatutorial.datastructure.exceptions.EmptyListException;
 

@@ -1,5 +1,7 @@
 package javatutorial.datastructure;
 
+import javatutorial.datastructure.tree.SegmentTree;
+
 public class Tester {
 
     public static void main(String[] args) {

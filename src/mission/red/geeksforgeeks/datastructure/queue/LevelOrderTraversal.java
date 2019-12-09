@@ -1,6 +1,6 @@
 package mission.red.geeksforgeeks.datastructure.queue;
 
-import javatutorial.datastructure.BinarySearchTree;
+import javatutorial.datastructure.tree.BinarySearchTree;
 
 /**
  * https://www.geeksforgeeks.org/level-order-tree-traversal/

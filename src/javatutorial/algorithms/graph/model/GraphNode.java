@@ -1,4 +1,4 @@
-package javatutorial.algorithms.graph;
+package javatutorial.algorithms.graph.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

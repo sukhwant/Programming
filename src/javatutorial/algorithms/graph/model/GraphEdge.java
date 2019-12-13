@@ -1,4 +1,4 @@
-package javatutorial.algorithms.graph;
+package javatutorial.algorithms.graph.model;
 
 import lombok.Getter;
 import lombok.Setter;

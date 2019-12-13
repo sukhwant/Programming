@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javatutorial.algorithms.graph.model.GraphEdge;
+import javatutorial.algorithms.graph.model.GraphNode;
 import javatutorial.datastructure.PriorityQueue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

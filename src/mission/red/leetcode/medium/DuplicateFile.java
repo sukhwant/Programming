@@ -1,12 +1,15 @@
 package mission.red.leetcode.medium;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+/**
+ * https://leetcode.com/problems/find-duplicate-file-in-system
+ */
 public class DuplicateFile {
 
     public static void main(String[] args) {
@@ -23,14 +26,19 @@ public class DuplicateFile {
             .forEach(x -> {
                 String[] splitContent = x.split(" ");
                 String path = splitContent[0];
-                String filename = getFileName(splitContent[1]);
-                String content = getContent(splitContent[1]);
 
-                contentMap.putIfAbsent(content, new LinkedList<>());
-                contentMap.get(content).add(path+"/"+filename);
+                for (int i = 1; i < splitContent.length; i++) {
+                    String filename = getFileName(splitContent[i]);
+                    String content = getContent(splitContent[i]);
+
+                    contentMap.putIfAbsent(content, new LinkedList<>());
+                    contentMap.get(content).add(path + "/" + filename);
+                }
             });
 
-        return new ArrayList<>(contentMap.values());
+        return contentMap.values().stream()
+            .filter(x -> x.size() > 1)
+            .collect(Collectors.toList());
 
     }
 

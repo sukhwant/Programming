@@ -1,4 +1,4 @@
-package mission.red.leetcode;
+package mission.red.leetcode.medium;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;

@@ -1,9 +1,9 @@
 package mission.red.leetcode.medium;
 
-public class SequencialNumber {
+public class CountNumbersWithUniqueDigits {
 
     public static void main(String[] args) {
-        System.out.println(new SequencialNumber().countNumbersWithUniqueDigits(2));
+        System.out.println(new CountNumbersWithUniqueDigits().countNumbersWithUniqueDigits(2));
     }
 
     public int countNumbersWithUniqueDigits(int n) {

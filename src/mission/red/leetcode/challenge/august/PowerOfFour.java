@@ -3,15 +3,7 @@ package mission.red.leetcode.challenge.august;
 public class PowerOfFour {
 
     public boolean isPowerOfFour(int num) {
-        int curr = 1;
-        while(curr <= num){
-            if(curr == num) {
-                return true;
-            } else{
-                curr = curr * 4;
-            }
-        }
-        return false;
+        return num !=0 && ((num & (num-1)) == 0) && ((num & 0xAAAAAAAA) == 0);
     }
 
     public static void main(String[] args) {

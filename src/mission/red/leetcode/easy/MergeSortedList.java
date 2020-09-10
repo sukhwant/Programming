@@ -1,5 +1,7 @@
 package mission.red.leetcode.easy;
 
+import mission.red.leetcode.easy.ReverseList.ListNode;
+
 /**
  * https://leetcode.com/problems/merge-two-sorted-lists/
  */
@@ -24,39 +26,63 @@ public class MergeSortedList {
     }
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode mergedList = new ListNode(-1);
-        ListNode lastNode = mergedList;
+        ListNode merged = null;
+        ListNode lastNode = merged;
         ListNode temp1 = l1;
         ListNode temp2 = l2;
 
         while (temp1 != null && temp2 != null) {
             if (temp1.val < temp2.val) {
-                lastNode.next = new ListNode(temp1.val);
-                lastNode = lastNode.next;
+                if(merged == null) {
+                    merged = new ListNode(temp1.val);
+                    lastNode = merged;
+                }
+                else {
+                    lastNode.next = new ListNode(temp1.val);
+                    lastNode = lastNode.next;
+                }
                 temp1 = temp1.next;
             } else {
-                lastNode.next = new ListNode(temp2.val);
-                lastNode = lastNode.next;
+                if(merged == null) {
+                    merged = new ListNode(temp2.val);
+                    lastNode = merged;
+                }
+                else {
+                    lastNode.next = new ListNode(temp2.val);
+                    lastNode = lastNode.next;
+                }
                 temp2 = temp2.next;
             }
         }
 
         if (temp1 != null) {
             while(temp1 != null) {
-                lastNode.next = new ListNode(temp1.val);
-                lastNode = lastNode.next;
+                if(merged == null) {
+                    merged = new ListNode(temp1.val);
+                    lastNode = merged;
+                }
+                else {
+                    lastNode.next = new ListNode(temp1.val);
+                    lastNode = lastNode.next;
+                }
                 temp1 = temp1.next;
             }
         }
 
         if (temp2 != null) {
             while(temp2 != null){
-                lastNode.next = new ListNode(temp2.val);
-                lastNode = lastNode.next;
+                if(merged == null) {
+                    merged = new ListNode(temp2.val);
+                    lastNode = merged;
+                }
+                else {
+                    lastNode.next = new ListNode(temp2.val);
+                    lastNode = lastNode.next;
+                }
                 temp2 = temp2.next;
             }
         }
-        return mergedList;
+        return merged;
     }
 
     public static void main(String[] args) {

@@ -9,33 +9,46 @@ package mission.red.geeksforgeeks.dynamicprogramming;
 
 public class LongestPalindromicSubSequence {
 
-    private static int longestPalindromicSubSequence(String input) {
-
-        int[][] result = new int[input.length()][input.length()];
-
-        for (int i = 0; i < input.length(); i++) {
-            result[i][i] = 1;
-        }
-
-        for (int length = 2; length <= input.length(); length++) {
-            for (int startIndex = 0; startIndex < input.length() - length + 1; startIndex++) {
-                int endIndex = startIndex + length - 1;
-                if (input.charAt(startIndex) == input.charAt(endIndex)) {
-                    result[startIndex][endIndex] = result[startIndex + 1][endIndex - 1] + 2;
-                } else {
-                    result[startIndex][endIndex] = Math.max(result[startIndex + 1][endIndex],
-                            result[startIndex][endIndex - 1]);
-                }
-
-            }
-        }
-        return result[0][input.length() - 1];
+    public class Data{
+        public int length;
+        public int start;
     }
+
+    private static int longestPalindromicSubSequenceRecursive(String input, int start, int end,
+        int[][] result) {
+
+        if(start > end){
+            return 0;
+        }
+
+        if(result[start][end] != -1){
+            return result[start][end];
+        }
+
+        if(start == end){
+            return 1;
+        }
+
+        if(input.charAt(start) == input.charAt(end)){
+            result[start][end] = longestPalindromicSubSequenceRecursive(input, start + 1, end - 1
+                , result);
+        } else{
+            result[start][end] = Math.max(longestPalindromicSubSequenceRecursive(input, start + 1,
+                end, result), longestPalindromicSubSequenceRecursive(input, start,
+                end - 1, result));
+        }
+        return result[start][end];
+    }
+
+
 
     public static void main(String[] args) {
         String input = "GEEKS FOR GEEKS";
 
-        System.out.println(longestPalindromicSubSequence(input));
+        int[][] result = new int[input.length()][input.length()];
+
+        System.out.println(longestPalindromicSubSequenceRecursive(input, 0, input.length(),
+            result));
     }
 
 }

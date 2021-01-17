@@ -2,9 +2,18 @@ package mission.red.leetcode.medium;
 
 public class BstToGst {
 
+    int sum = 0;
     public TreeNode bstToGst(TreeNode root) {
 
-        return null;
+        if(root == null)
+            return root;
+
+        bstToGst(root.right);
+        root.val = sum + root.val;
+
+        bstToGst(root.left);
+
+        return root;
     }
 
     public class TreeNode {

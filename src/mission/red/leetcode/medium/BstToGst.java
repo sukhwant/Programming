@@ -3,6 +3,7 @@ package mission.red.leetcode.medium;
 public class BstToGst {
 
     int sum = 0;
+
     public TreeNode bstToGst(TreeNode root) {
 
         if(root == null)
@@ -12,7 +13,6 @@ public class BstToGst {
         root.val = sum + root.val;
 
         bstToGst(root.left);
-
         return root;
     }
 

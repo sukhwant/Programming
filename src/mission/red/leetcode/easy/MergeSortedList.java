@@ -1,7 +1,5 @@
 package mission.red.leetcode.easy;
 
-import mission.red.leetcode.easy.ReverseList.ListNode;
-
 /**
  * https://leetcode.com/problems/merge-two-sorted-lists/
  */

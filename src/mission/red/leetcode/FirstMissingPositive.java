@@ -1,5 +1,7 @@
 package mission.red.leetcode;
 
+import java.util.ArrayList;
+
 /**
  * https://leetcode.com/problems/first-missing-positive/submissions/
  * 
@@ -16,7 +18,12 @@ public class FirstMissingPositive {
         System.out.println(solution.firstMissingPositive(input));
     }
 
-    private int firstMissingPositive(int[] input) {
+    public int firstMissingPositive(ArrayList<Integer> A) {
+        int[] input = A.stream().mapToInt(i -> i).toArray();
+        return firstMissingPositive(input);
+    }
+
+    private static int firstMissingPositive(int[] input) {
         for (int i = 0; i < input.length; i++) {
             if (input[i] <= 0) {
                 input[i] = input.length + 1;
